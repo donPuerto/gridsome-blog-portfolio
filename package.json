@@ -14,7 +14,6 @@
     "gridsome": "^0.7.0",
     "gridsome-plugin-flexsearch": "^1.0.1",
     "gridsome-plugin-gtm": "^0.1.1",
-    "gridsome-plugin-remark-prismjs-all": "^0.3.5",
     "vuetify": "^2.3.0",
     "vuex": "^3.4.0"
   },
