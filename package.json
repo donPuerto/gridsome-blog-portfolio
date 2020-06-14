@@ -1,0 +1,25 @@
+{
+  "name": "gridsome-vuetify-blog-portfolio-v1",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/plugin-google-analytics": "^0.1.1",
+    "@gridsome/remark-prismjs": "^0.3.0",
+    "@gridsome/transformer-remark": "^0.6.0",
+    "@gridsome/vue-remark": "^0.2.1",
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-flexsearch": "^1.0.1",
+    "gridsome-plugin-gtm": "^0.1.1",
+    "gridsome-plugin-remark-prismjs-all": "^0.3.5",
+    "vuetify": "^2.3.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@mdi/font": "^5.3.45",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
