@@ -1,8 +1,8 @@
 ---
 slug: dart
 title: Dart
-description: Paint your UI to life with DART
-author: Don Puerto
+description: 'Paint your UI to life with DART'
+author: 'Don Puerto'
 created_at: 2020-06-12
 updated_at: 2020-06-12
 tags: [dart, tutorial]

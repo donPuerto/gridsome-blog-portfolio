@@ -1,122 +1,125 @@
 <template>
   <Layout>
-    <v-parallax
-      height="400"
-      src="https://toppng.com/uploads/preview/code-programming-symbols-letters-texture-11569777920cq2qrlvjch.jpg"
-    >
+    <v-parallax height="450" :src="require('~/assets/images/parallax.png')">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
-          <h1 class="heading-3 font-weight-medium mb-4">Don Puerto</h1>
-          <h4 class="subheading">Programming for Fun</h4>
+          <div class="orange--text text--darken-4 elevation-10 rounded-lg pa-10 mt-12">
+            <span
+              class="newFont text-h1"
+              :class="
+                breakpointSwitcher == 6
+                  ? 'text-h6'
+                  : breakpointSwitcher == 5
+                  ? 'text-h5'
+                  : breakpointSwitcher == 4
+                  ? 'text-h4'
+                  : breakpointSwitcher == 3
+                  ? 'text-h3'
+                  : breakpointSwitcher == 2
+                  ? 'text-h2'
+                  : 'text-h1'
+              "
+            >Programming for Fun</span>
+            <v-spacer></v-spacer>
+            <span class="amber--text text--darken-4 text-subtitle-2 text-uppercase mt-n10">
+              <strong>Created By:</strong> Don Puerto
+            </span>
+          </div>
         </v-col>
       </v-row>
     </v-parallax>
 
-    <v-container>
-      <v-sheet class="elevation-2 px-10 py-10 rounded-lg">
-        <v-row class="fill-height overflow-auto">
-          <v-col
-            class="py-2"
-            :cols="(12/itemsPerRow)"
-            v-for="edge in $page.posts.edges"
-            :key="edge.node.id"
-          >
-            <v-hover v-slot:default="{ hover }" open-delay="200">
-              <v-card
-                width="420"
-                :elevation="hover ? 16 : 2"
-                class="grey lighten-4"
-                :to="edge.node.path"
-              >
-                <v-img :src="edge.node.cover_image" height="150">
-                  <div class="fill-height bottom-gradient"></div>
-                </v-img>
+    <v-container grid-list-md class="px-16">
+      <v-sheet class="pa-12" color="grey lighten-3 rounded-lg">
+        <v-row align="start" justify="center">
+          <v-col cols="12" sm="5" md="3" class="hidden-sm-and-down">
+            <v-row align="center" justify="center">
+              <v-col cols="12">
+                <v-card class="mx-auto rounded-lg">
+                  <v-card-text class="d-flex flex-column justify-center align-center py-5">
+                    <g-image
+                      class="mt-6"
+                      style="border-radius: 50%;"
+                      width="320"
+                      height="320"
+                      fit="contain"
+                      src="https://s.gravatar.com/avatar/cebf83480fdc866c72007290fa2dc286?s=80"
+                    ></g-image>
+                  </v-card-text>
+                  <v-card-text class="pt-0">
+                    <router-link to="/author/donpuerto/" class="text-decoration-none">
+                      <div class="text-subtitle-2">Don Puerto</div>
+                    </router-link>
+                    <div class="text-caption mb-3">Software Engineer</div>
 
-                <v-card-title>{{edge.node.title}}</v-card-title>
-                <v-card-subtitle>{{edge.node.description}}</v-card-subtitle>
+                    <div class="text-caption">Email: don.puerto@hotmail.com</div>
+                    <div class="text-caption">Skype: king.james.empire</div>
+                  </v-card-text>
 
-                <v-card-subtitle>
-                  <div class="caption text-uppercase">Date Created: {{edge.node.created_at}}</div>
-                  <div class="caption text-uppercase">Date Updated: {{edge.node.updated_at}}</div>
-                </v-card-subtitle>
-                <v-spacer></v-spacer>
-
-                <v-card-actions>
-                  <v-chip
-                    class="ma-2"
-                    :color="tag.color"
-                    text-color="white"
-                    v-for="tag in edge.node.tags"
-                    :key="tag.id"
-                  >
-                    <v-avatar left>
-                      <v-icon>{{tag.icon}}</v-icon>
-                    </v-avatar>
-                    <g-link :to="tag.path" style="text-decoration: none;">
-                      <span class="white--text">{{ tag.id }}</span>
-                    </g-link>
-                  </v-chip>
-                </v-card-actions>
-              </v-card>
-            </v-hover>
+                  <v-divider></v-divider>
+                  <v-card-actions class="d-flex justify-center">
+                    <v-btn
+                      rounded
+                      class="ma-2"
+                      tile
+                      color="teal"
+                      icon
+                      href="https://twitter.com/donpuerto_"
+                      target="_blank"
+                    >
+                      <v-icon>mdi-twitter</v-icon>
+                    </v-btn>
+                    <v-btn
+                      rounded
+                      class="ma-2"
+                      tile
+                      color="teal"
+                      icon
+                      href="https://github.com/donPuerto"
+                      target="_blank"
+                    >
+                      <v-icon>mdi-github</v-icon>
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col cols="12" sm="7" md="9">
+            <v-row align="start" justify="center">
+              <v-col cols="12" md="6" lg="4" v-for="edge in $page.posts.edges" :key="edge.node.id">
+                <PostCard :post="edge.node" />
+              </v-col>
+            </v-row>
+            <Pager :info="$page.posts.pageInfo" />
+            <p>Total Count: {{ $page.posts.totalCount }}</p>
+            <p>Page Info: {{ $page.posts.pageInfo }}</p>
+            <div class="text-center">
+              <v-pagination
+                v-model="$page.posts.pageInfo.currentPage"
+                :length="$page.posts.totalCount"
+              ></v-pagination>
+            </div>
           </v-col>
         </v-row>
-
-        <p>Total Count: {{$page.posts.totalCount}}</p>
-        <p>Page Info: {{$page.posts.pageInfo}}</p>
-        <div class="text-center">
-          <v-pagination v-model="$page.posts.pageInfo.currentPage" :length="$page.posts.totalCount"></v-pagination>
-        </div>
-        <Pager :info="$page.posts.pageInfo" />
       </v-sheet>
     </v-container>
   </Layout>
 </template>
 
-<page-query>
-  query ($page: Int)  {    
-      posts: allPost (
-        filter: { published: { eq: true } },
-        sortBy: "created_at", 
-        order: DESC, 
-        perPage: 10, 
-        page: $page, 
-      ) 
-        @paginate {
-          totalCount
-          pageInfo {
-            totalPages
-            currentPage
-          } 
-        
-          edges {
-            node {
-              id
-              slug
-              title
-              description
-              created_at (format: "DD MMMM YYYY")
-              updated_at (format: "DD MMMM YYYY")
-              cover_image (width: 860, blur: 10)
-              
-              series
-              path
-              tags {
-                id
-                color
-                icon
-                path
-              }
-            }
-          }
-        }
-  }
-</page-query>
-
 <script>
+import PostCard from "~/components/PostCard";
+import PostMeta from "~/components/PostMeta";
+import PostTags from "~/components/PostTags";
+import PostAuthor from "~/components/PostAuthor";
 import { Pager } from "gridsome";
 export default {
   components: {
+    Pager,
+    PostAuthor,
+    PostMeta,
+    PostTags,
+    PostCard,
     Pager
   },
   data: () => ({}),
@@ -124,18 +127,18 @@ export default {
     title: "Hello, world!"
   },
   computed: {
-    itemsPerRow() {
+    breakpointSwitcher() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          return 1;
-        case "sm":
-          return 2;
-        case "md":
-          return 3;
-        case "lg":
-          return 4;
-        case "xl":
           return 6;
+        case "sm":
+          return 5;
+        case "md":
+          return 4;
+        case "lg":
+          return 3;
+        case "xl":
+          return 2;
       }
     }
   },
@@ -145,4 +148,68 @@ export default {
 };
 </script>
 
-<style></style>
+<page-query>
+query Post  ($page: Int) {
+  posts: allPost (filter: { published: { eq: true }},  sortBy: "created_at", 
+        order: DESC, page: $page,  perPage: 6)
+  	@paginate  {
+      totalCount
+        pageInfo {
+          totalPages
+          currentPage
+    } 
+    edges {
+      node {
+        id
+        path
+        title
+        slug
+        created_at (format: "MMM D YYYY")
+        updated_at (format: "MMM D YYYY")
+        published
+        description
+        cover_image
+        series
+        tags {
+          id
+          path
+          title
+          color
+          icon
+          excerpt
+          
+        }
+        author {
+          id
+          path
+          name
+          email
+          skype
+          twitter
+          github
+          avatar
+          jobTitle
+    
+        }
+      }
+    }
+  }
+}
+
+
+</page-query>
+
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+.newFont {
+  font-family: "Balsamiq Sans", cursive !important;
+}
+
+img.v-parallax__image {
+  opacity: 0.2 !important;
+}
+
+img.v-parallax__image:hover {
+  opacity: 1 !important;
+}
+</style>

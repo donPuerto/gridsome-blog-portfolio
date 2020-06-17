@@ -23,16 +23,10 @@
 
               <template v-slot:actions>
                 <div v-for="tag in $page.post.tags" :key="tag.id">
-                  <v-chip
-                    :to="tag.path"
-                    class
-                    :color="tag.color"
-                    text-color="white"
-                  >
+                  <v-chip :to="tag.path" class :color="tag.color" text-color="white">
                     <v-avatar left>
                       <v-icon>{{ tag.icon }}</v-icon>
                     </v-avatar>
-
                     {{ tag.id }}
                   </v-chip>
                 </div>
@@ -40,7 +34,9 @@
             </v-banner>
             <v-card-text class="grey lighten-4">
               <v-sheet max-width="80%" class="mx-auto py-10 px-10">
-                <VueRemarkContent />
+                <div>
+                  <VueRemarkContent />
+                </div>
               </v-sheet>
             </v-card-text>
           </v-card>
@@ -49,12 +45,12 @@
     </v-container>
   </Layout>
 </template>
+
 <page-query>
   query Post ($id: ID!) {
   post(id: $id) {
       title,
       description
-      author
       created_at (format: "DD MMMM YYYY")
       updated_at (format: "DD MMMM YYYY")
       cover_image
@@ -71,3 +67,4 @@
 <script>
 export default {};
 </script>
+<style src="~/assets/css/github-markdown.css" />

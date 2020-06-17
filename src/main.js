@@ -1,4 +1,6 @@
 import Vuetify from 'vuetify';
+import MasterLayout from '~/layouts/MasterLayout.vue'
+
 import 'vuetify/dist/vuetify.min.css';
 import colors from 'vuetify/es5/util/colors';
 
@@ -6,7 +8,6 @@ import store from "../store";
 
 
 
-import MasterLayout from '~/layouts/MasterLayout.vue'
 
 export default function (Vue, {
   router,

@@ -1,16 +1,13 @@
 ---
-slug: vue
 title: Vue Js Introduction
-description: The Progressive JavaScript Framework
-author: Don Puerto
 created_at: 2020-06-14
 updated_at: 2020-06-14
-tags:
-  - vue
-  - tutorial
-icon: mdi-vuejs
-cover_image: ./images/vue.png
 published: true
+slug: vue
+description: 'The Progressive JavaScript Framework'
+author: ['donpuerto']
+tags: ['vue', 'tutorial']
+cover_image: ./images/vue.png
 series: false
 ---
 
@@ -22,7 +19,7 @@ With **Gridsome** you get a **universal GraphQL layer** for all your connected d
 
 Here is an example on how to query posts from the GraphQL layer in a page:
 
-```html
+```js
 <template>
   <Layout>
     <h2>Latest blog posts</h2>
