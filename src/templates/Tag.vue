@@ -6,45 +6,32 @@
           <v-card class="rounded-lg">
             <v-banner class="pt-2">
               <v-list three-line>
-                <!-- <v-list-item-avatar>
-                  {{$page.tag.avatar}}
-                  <v-img :src="$page.tag.avatar"></v-img>
-                </v-list-item-avatar>-->
-
-                <v-list-item-content>
-                  <v-list-item-title v-html="$page.tag.founder"></v-list-item-title>
-                  <v-list-item-subtitle>
-                    <a
-                      :href="$page.tag.projectRepo"
-                      target="_blank"
-                      class="text-decoration-none"
-                    >{{ $page.tag.founder }}</a>
-                  </v-list-item-subtitle>
-                </v-list-item-content>
+                <v-list-item>
+                  <v-avatar tile color="blue" size="164">
+                    <g-image class="rounded-lg" :src="$page.tag.avatar"></g-image>
+                  </v-avatar>
+                  <v-list-item-content class="ml-5">
+                    <v-list-item-title class="text-h3">
+                      <a
+                        :href="$page.tag.founderRepo"
+                        target="_blank"
+                        class="text-decoration-none"
+                      >{{ $page.tag.founder }}</a>
+                    </v-list-item-title>
+                    <v-list-item-subtitle class="pt-0">
+                      <a
+                        :href="$page.tag.projectRepo"
+                        target="_blank"
+                        class="text-decoration-none font-weight-light grey--text text--lighten-1 text-h4"
+                      >{{ $page.tag.title }}</a>
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-subheader>What is Vue.js?</v-subheader>
+                <v-list-item>
+                  <div class="text-caption mb-2">{{ $page.tag.description }}</div>
+                </v-list-item>
               </v-list>
-
-              <div class="text-heading-5">{{ $page.tag.title }}</div>
-              <div class="text-caption mb-2">
-                by:
-                <span class="text-subtitle-2">
-                  <a
-                    :href="$page.tag.projectRepo"
-                    target="_blank"
-                    class="text-decoration-none"
-                  >{{ $page.tag.founder }}</a>
-                </span>
-              </div>
-              <div class="text-caption mb-2">{{ $page.tag.description }}</div>
-              <div class="text-caption">
-                <a :href="$page.tag.github" target="_blank" class="text-decoration-none">Github Repo</a>
-              </div>
-              <div class="text-caption">
-                <a
-                  :href="$page.tag.website"
-                  target="_blank"
-                  class="text-decoration-none"
-                >Official Site</a>
-              </div>
 
               <!-- <pre>{{ $page.tag.belongsTo.edges }}</pre> -->
             </v-banner>
@@ -79,12 +66,13 @@
     id
     color
     title
+    projectRepo
     icon
     description
-    github
-    projectRepo
     founder
+    founderRepo
     website
+    avatar
     belongsTo {
       edges {
         node {

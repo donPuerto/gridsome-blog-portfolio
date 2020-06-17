@@ -19,5 +19,8 @@
   "devDependencies": {
     "@mdi/font": "^5.3.45",
     "webpack-node-externals": "^1.7.2"
+  },
+  "resolutions": {
+    "gridsome/vue-router": "3.3.4"
   }
 }
