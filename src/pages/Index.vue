@@ -176,7 +176,7 @@ query Post  ($page: Int) {
           title
           color
           icon
-          excerpt
+          
           
         }
         author {

@@ -77,7 +77,6 @@
     title
     projectRepo
     icon
-    
     founder
     founderRepo
     website
@@ -102,7 +101,7 @@
               title
               color
               icon
-              excerpt
+              
               
             }
             author {
