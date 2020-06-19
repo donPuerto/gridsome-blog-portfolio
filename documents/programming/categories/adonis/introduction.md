@@ -5,10 +5,10 @@ description: 'AdonisJs is a Node.js web framework with a breath of fresh air and
 author: 'Don Puerto'
 created_at: 2020-06-12
 updated_at: 2020-06-12
-tags: [adonis, tutorial]
+tags: [adonisjs, tutorial]
 cover_image: ./images/adonisjs.png
 published: true
 series: false
 ---
 
-### Gridsome
+### Adonis JS

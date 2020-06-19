@@ -19,17 +19,19 @@
         <div class="fill-height bottom-gradient"></div>
       </v-img>
 
-      <v-card-title class="text-subtitle-2">{{ post.title }}</v-card-title>
+      <v-subheader>TITLE</v-subheader>
+
+      <v-card-title class="text-subtitle-2 pt-0 mb-1">{{ post.title }}</v-card-title>
       <v-card-subtitle>{{ post.description }}</v-card-subtitle>
 
-      <v-card-subtitle>
-        <v-subheader>Date</v-subheader>
-        <div class="caption text-uppercase">
-          Date Created:
+      <v-subheader>DATE</v-subheader>
+      <v-card-subtitle class="pt-0">
+        <div class="text-caption mb-1">
+          Created:
           <strong>{{ post.created_at }}</strong>
         </div>
-        <div class="caption text-uppercase">
-          Date Updated:
+        <div class="text-caption">
+          Updated:
           <strong>{{ post.updated_at }}</strong>
         </div>
       </v-card-subtitle>

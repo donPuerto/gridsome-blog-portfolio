@@ -12,31 +12,40 @@
                   </v-avatar>
                   <v-list-item-content class="ml-5">
                     <v-list-item-title class="text-h3">
-                      <a
-                        :href="$page.tag.founderRepo"
-                        target="_blank"
-                        class="text-decoration-none"
-                      >{{ $page.tag.founder }}</a>
+                      <div>
+                        <a
+                          :href="$page.tag.founderRepo"
+                          target="_blank"
+                          class="text-decoration-none"
+                        >{{ $page.tag.founder }}</a>
+                      </div>
+
+                      <div class="mt-n4">
+                        <a
+                          :href="$page.tag.projectRepo"
+                          target="_blank"
+                          class="text-decoration-none font-weight-light grey--text text--lighten-1 text-h4"
+                        >{{ $page.tag.title }}</a>
+                      </div>
                     </v-list-item-title>
-                    <v-list-item-subtitle class="pt-0">
+                    <!-- <v-list-item-subtitle class="pt-0">
                       <a
                         :href="$page.tag.projectRepo"
                         target="_blank"
                         class="text-decoration-none font-weight-light grey--text text--lighten-1 text-h4"
                       >{{ $page.tag.title }}</a>
-                    </v-list-item-subtitle>
+                    </v-list-item-subtitle>-->
                   </v-list-item-content>
                 </v-list-item>
-                <v-subheader>What is Vue.js?</v-subheader>
-                <v-list-item>
-                  <div class="text-caption mb-2">{{ $page.tag.description }}</div>
-                </v-list-item>
               </v-list>
-
-              <!-- <pre>{{ $page.tag.belongsTo.edges }}</pre> -->
             </v-banner>
             <v-card-text class="grey lighten-4">
               <v-sheet max-width="80%" class="mx-auto py-10 px-10">
+                <v-col cols="12">
+                  <v-row align="start" justify="center">
+                    <VueRemarkContent />
+                  </v-row>
+                </v-col>
                 <v-col cols="12">
                   <v-row align="start" justify="center">
                     <v-col
@@ -68,7 +77,7 @@
     title
     projectRepo
     icon
-    description
+    
     founder
     founderRepo
     website
